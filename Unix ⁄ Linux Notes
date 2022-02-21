@@ -1,0 +1,34 @@
+--------------------------------------------
+             UNIX / LINUX NOTES
+--------------------------------------------
+
+Sources : edureka!, tutorialspoint, GeeksforGeeks
+
+What is Kernel ?
+Ans: The computer program that allocate the system resources and coordinate all the details of the computer's internals is called the OS or the Kernel. Users communcate with the OS through a program called Shell.
+
+
+What is a Shell?
+And: A shell is Command Line Interpreter(CLI).It is a utility tool that processes your requests to do typical operations like file manipulation, program execution, and printing text, etc. It translates commands entered by the user and converts them into a language that is understood by the Kernel or OS.
+
+Shell is broadly classified into two categories –
+    1) Command Line Shell - executing tasks or programs via commands.
+    2) Graphical shell - executing the task via Graphics; like we close window using X button.
+
+
+What is Shell script ?
+Ans: The basic concept of a shell is a list of cmds which are listed in the order of execution.
+
+Some basic cmds used in linux:
+    ls    - lists all the directory contents
+    cat   - concatenate files and print on the standard output
+    clear - to clear the terminal.
+    exit  - to exit the terminal
+
+There are several shells are available for Linux systems like –
+
+    BASH (Bourne Again SHell) : It is most widely used shell in Linux systems. It is used as default login shell in Linux systems and in macOS. It can also be installed on Windows OS.
+
+    CSH (C SHell) : The C shell’s syntax and usage are very similar to the C programming language.
+
+    KSH (Korn SHell) : The Korn Shell also was the base for the POSIX Shell standard specifications etc.
