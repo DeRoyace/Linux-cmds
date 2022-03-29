@@ -1,0 +1,18 @@
+Cmd to update programs: $ sudo apt update
+
+Cmd to upgrade programs: $ sudo apt upgrade
+
+Cmd to install bpytop: $ sudo apt install bpytop
+
+Cmd to install htop: $ sudo apt install htop
+
+
+Cmd to install pip: $ sudo apt install pip
+
+Cmd to install snap: $ sudo apt install snap
+
+
+
+Cmd to install VS Code: $ sudo snap install code --classic
+
+Cmd to install Eclipse: $ sudo snap install --classic eclipse
