@@ -31,3 +31,9 @@ rmdir dirName : to remove the file/ folder/ directory.
 NOTE: rmdir cannot delete diectories having files / folders inside.
 rm -R dirName : to delete the directory with the files inside.
 history : will list all the cmds used (last 500 cmds)
+df : shows the disk spcace usage
+top OR htop : shows the cpu, memory usage and running background apps.
+lsusb : shows the USB buses and devices connected.
+sudo apt install AppName : to install apps.
+sudo apt remove AppsName : to remove/ delete the app
+
