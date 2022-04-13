@@ -36,4 +36,7 @@ top OR htop : shows the cpu, memory usage and running background apps.
 lsusb : shows the USB buses and devices connected.
 sudo apt install AppName : to install apps.
 sudo apt remove AppsName : to remove/ delete the app
+ctrl + alt + t : to open terminal
+ctrl + shift + w : to close terminal
+alt + f4 : can be also use to close. 
 
