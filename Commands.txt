@@ -1,0 +1,62 @@
+Cmd to update programs: $ sudo apt update
+
+Cmd to upgrade programs: $ sudo apt upgrade
+
+Cmd to install bpytop: $ sudo apt install bpytop
+
+
+Cmd to install pip: $ sudo apt install pip
+
+Cmd to install snap: $ sudo apt install snap
+
+
+
+Cmd to install VS Code: $ sudo snap install code --classic
+
+Cmd to install Eclipse: $ sudo snap install --classic eclipse
+
+
+ls : to list directory
+ls -a : to list all hidden files and directories
+ls -l : to give detailed info of directories/ files like when created and by whom, is readable/ writeable/ executable.
+
+locate filename : search the given filename in the computer.
+mkdir folderName : to create a folder/ directory
+cd / : to go to root directory
+cd ~ : to go to home directory
+cd : also will take you to home directory
+cd dirName : to change directory
+mk [cureentFileName] [NewFileName] : this changes the file or folder name.
+cp [file1] [file2] : copies the file1 contents to file2.
+cat [filename] : to show the contents of file in the terminals.
+cd .. : to go to the outer directory from the current one.
+pwd : shows the path of current working directory.
+
+rm [filename] : to remove dir/ file/ folder. 
+rmdir [dirName] : to remove the file/ folder/ directory.
+NOTE: rmdir cannot delete diectories having files / folders inside.
+rm -R [dirName] : to delete the directory with the files inside.
+
+history : will list all the cmds used (last 500 cmds)
+df : shows the disk spcace usage
+top OR htop : shows the cpu, memory usage and running background apps.
+lsusb : shows the USB buses and devices connected.
+
+sudo apt install AppName : to install apps.
+sudo apt remove AppsName : to remove/ delete the app
+
+CTRL + ALT + t : to open terminal
+CTRL + Shift + w : to close terminal
+ALT + f4 : can be also use to close. 
+CTRL + L : to clear the terminal.
+
+whoami : cmd to check whether you are root user/ whats the user name you are logged in as.
+su root : to go to the root account. '$' will change to '#'
+passwd : to change your login or root account  password.
+passwd [Account Name] : to change password of that particular account.
+id : shows user id; root account id is 0.
+
+ps aux : lists all processes that are currently running in the device.
+CTRL + C : to terminate the program.
+CTRL + Z : to pause the program.
+
