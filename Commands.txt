@@ -19,15 +19,22 @@ Cmd to install Eclipse: $ sudo snap install --classic eclipse
 ls : to list directory
 ls -a : to list all hidden files and directories
 ls -l : to give detailed info of directories/ files like when created and by whom, is readable/ writeable/ executable.
+ls -al: to list all hidden files with details.
+ls -lh: to list file with details ut file size in KB (kilobytes).
+ls -lR: to list all the directories and their sub-directories with details.
+ls -lR dirName : to list the details of sub-directories of the specified dirName.
 
 locate filename : search the given filename in the computer.
 mkdir folderName : to create a folder/ directory
+touch fileName : to create a file
 cd / : to go to root directory
-cd ~ : to go to home directory
-cd : also will take you to home directory
+cd ~ : to go to home/user directory
+cd : will also take you to home/user directory
 cd dirName : to change directory
 mk [cureentFileName] [NewFileName] : this changes the file or folder name.
+mv [file] [dir] : to move the file in the directory/ folder.
 cp [file1] [file2] : copies the file1 contents to file2.
+cp [file] [dir] : will copy the file in the directory.
 cat [filename] : to show the contents of file in the terminals.
 cd .. : to go to the outer directory from the current one.
 pwd : shows the path of current working directory.
@@ -49,7 +56,10 @@ CTRL + ALT + t : to open terminal
 CTRL + Shift + w : to close terminal
 ALT + f4 : can be also use to close. 
 CTRL + L : to clear the terminal.
+CTRL + C : to terminate the program.
+CTRL + Z : to pause/suspend the program.
 
+whatis [cmds] : to give brief description or use of that command.
 whoami : cmd to check whether you are root user/ whats the user name you are logged in as.
 su root : to go to the root account. '$' will change to '#'
 passwd : to change your login or root account  password.
@@ -57,6 +67,5 @@ passwd [Account Name] : to change password of that particular account.
 id : shows user id; root account id is 0.
 
 ps aux : lists all processes that are currently running in the device.
-CTRL + C : to terminate the program.
-CTRL + Z : to pause the program.
-
+echo [texts] : to display texts in the terminal
+echo [texts] > [file] : to redirect the text intos the file. 
