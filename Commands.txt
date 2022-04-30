@@ -26,21 +26,28 @@ ls -lR dirName : to list the details of sub-directories of the specified dirName
 
 locate filename : search the given filename in the computer.
 mkdir folderName : to create a folder/ directory
-touch fileName : to create a file
-cd / : to go to root directory
-cd ~ : to go to home/user directory
-cd : will also take you to home/user directory
-cd dirName : to change directory
+mkdir folder1 folder2 folder3 : to create multiple folders/ directory at once
+mkdir file{1..9} : this will create 10 folders with name 'file 1', 'file 2', ..., 'file 10'
+mkdir -v folders{1..7} : this will create folders & will skip the ones which are already created before with the same name.
+mkdir -p Desktop/myRipos/Codes/Shell/cmds : will create 'cmds' folder in the given path but if the path doesn't exits then it will be created.
 mk [cureentFileName] [NewFileName] : this changes the file or folder name.
 mv [file] [dir] : to move the file in the directory/ folder.
 cp [file1] [file2] : copies the file1 contents to file2.
 cp [file] [dir] : will copy the file in the directory.
 cat [filename] : to show the contents of file in the terminals.
+touch fileName : to create a file
+
+cd / : to go to root directory
+cd ~ : to go to home/user directory
+cd : will also take you to home/user directory
+cd [dirNam]e : to change directory
 cd .. : to go to the outer directory from the current one.
 pwd : shows the path of current working directory.
 
 rm [filename] : to remove dir/ file/ folder. 
 rmdir [dirName] : to remove the file/ folder/ directory.
+rmdir myFolder* : removes all folders that begins with name 'myFolder'
+rmdir myFolder{1..7} : removes the folders from 'myFolder 1' to 'myFolder 7'
 NOTE: rmdir cannot delete diectories having files / folders inside.
 rm -R [dirName] : to delete the directory with the files inside.
 
@@ -49,15 +56,15 @@ df : shows the disk spcace usage
 top OR htop : shows the cpu, memory usage and running background apps.
 lsusb : shows the USB buses and devices connected.
 
-sudo apt install AppName : to install apps.
+sudo apt install AppName : to install apps
 sudo apt remove AppsName : to remove/ delete the app
 
-CTRL + ALT + t : to open terminal
-CTRL + Shift + w : to close terminal
-ALT + f4 : can be also use to close. 
-CTRL + L : to clear the terminal.
-CTRL + C : to terminate the program.
-CTRL + Z : to pause/suspend the program.
+CTRL + ALT + T : to open terminal
+CTRL + SHIFT + W : to close terminal
+ALT + F4 : to close APPs
+CTRL + L : to clear the terminal
+CTRL + C : to terminate the program
+CTRL + Z : to pause/suspend the program
 
 whatis [cmds] : to give brief description or use of that command.
 whoami : cmd to check whether you are root user/ whats the user name you are logged in as.
