@@ -67,6 +67,7 @@ CTRL + C : to terminate the program
 CTRL + Z : to pause/suspend the program
 
 whatis [cmds] : to give brief description or use of that command.
+whereis [cmds] : gives the path or location of the binary source code files & man page of the given command.
 whoami : cmd to check whether you are root user/ whats the user name you are logged in as.
 su root : to go to the root account. '$' will change to '#'
 passwd : to change your login or root account  password.
