@@ -38,6 +38,7 @@ Default permissions for:
 3. Display current date in the terminal preceeded by the screen "Hello today is dd-mm-yyyy" :  date "+Hello today is %d-%m-%y"
 4. Display the directories only :  ls -l | grep "^d" | wc -l
 5. Create a file and write few text on it :  cat > filename.txt then write something. Press CTRL-D to stop writing in that file.
+   Display how many times the word "rain" occurs in it : grep -o -i "rain" rain.txt | wc -l (where -o = only matching and -i = ignore case)
 6. How many users are currently logged in :  who | wc -l
 7. Find the number of files present in the directory :  ls -l | grep "^-" | wc -l
 
