@@ -1,0 +1,127 @@
+-----------------------------------------------------------------------
+                        OS PRACTICALS NOTES
+-----------------------------------------------------------------------
+
+drwxrwxrwx: 'd' - directrory
+            'r' - read (4)
+            'w' - write (2)
+            'x' - executable (1)
+
+'rwx' is written 3 times consecutively. This means,
+    a) first set of rwx implies USER / OWNER permission
+    b) second set implies GROUP permissions same as owner.
+    c) third set implies OTHERs outside the group.
+    d) left most single symbol 'd' indicates it is directory. It can be 'l' or '-' also.
+        'l' means its a shortcut link of a file or a directory.
+        '-' means it is a file.
+    
+    rwx = 4+2+1 = 7; file can be read, write & executable
+    rw- = 4+2+0 = 6; file can be read and write but NOT executable
+    r-x = 4+0+1 = 5; file can be read and execute
+    
+ Value   Symbols    Meanings/ Permissons
+    0       ---     No permission
+    1       --x     Execute
+    2       -w-     Write
+    3       -wx     Write and execute
+    4       r--     Read
+    5       r-x     Read and execute
+    6       rw-     Read and write
+    7       rwx     Read, write, and execute
+     
+Default permissions for:
+    a) file     - 664 (-rw-rw-r--)
+    b) folder   - 665 (drwxrwxr-x)
+
+1. Display directories, sub-directories :  ls -l
+2. Combine contents of two file into one file :  cat > combineFile.txt file1.txt file2.txt
+3. Display current date in the terminal preceeded by the screen "Hello today is dd-mm-yyyy" :  date "+Hello today is %d-%m-%y"
+4. Display the directories only :  ls -l | grep "^d" | wc -l
+5. Create a file and write few text on it :  cat > filename.txt then write something. Press CTRL-D to stop writing in that file.
+6. How many users are currently logged in :  who | wc -l
+7. Find the number of files present in the directory :  ls -l | grep "^-" | wc -l
+
+-----------------------------------------------------------------------------------------------------------------------
+                        OS Practical | SM KG | 	04-08-22
+-----------------------------------------------------------------------------------------------------------------------
+ grep -i EXAM exam.txt | wc -l  : '-i' ignores case while checking; counting the word 'EXAM' in exam.txt file.
+ grep -i -c exam exam.txt       : same as above 
+ echo there are `grep -i -o -c  : exam exam.txt` matches found; Output: there are 5 matches found
+
+Q.1 Count the number of files in the current directory:  ls -al | wc -l
+Q.2 Display the list of all processes run by all users in their login shell:  ps -a
+Q.3 Check whether the user Student1 has logged in or not.
+Q.4 Display ur terminal name:  tty
+Q.5 Display the full path name for the current working directory:  pwd
+Q.6 Convert all lowers case letters to uppercase letters in a file:  cat file.txt | tr a-z A-Z
+    cat file.txt | tr a-zA-Z a-zA-Z (upper to lower and lower to upper)
+Q.7 There are two text files. write a cmd to display total no. of words in this two files:  cat file.txt | wc -w
+    ls -alh | grep "^d" | wc -l => drwxrwxrwx counts 'd'
+
+-----------------------------------------------------------------------------------------------------------------------
+                        OS Practical | SM KG | 	12-08-22
+-----------------------------------------------------------------------------------------------------------------------
+1. Create 5 empty file f1.txt, f2.txt, ... f5.txt   : touch f{1..5}.txt
+2. Cmd to display live status of current process    : top
+3. Cmd to print history of cmds :   history
+4. Cmd to display full path of a file   : locate file.txt
+5. Cmd to estimate disk usage in blocks : df
+6. Difference between du and df cmd.
+
+7. Create a file and write the table below:
+  NAME      ROLL    MARKS
+Siladit     420     100
+Kaushik     786     099
+Gaaurav     980     089
+a) display the first column only. cut -f1 Roy_ek_villian.txt
+
+NOTE: f1 takes first column and ignores tab spaces
+But here i made two tabs between Name and Row column  so f1 - NAME column; f3 - ROLL column; f4 - MARKS column
+
+b) display the last two column.
+Ans: cut -f3-4 Roy_ek_villian.txt
+ROLL    MARKS
+420     100
+786     099
+980     089
+
+c) display the first and third columns.
+Ans: cut -f1,4 Roy_ek_villian.txt
+  NAME  MARKS
+Siladit 100
+Kaushik 099
+Gaaurav 089
+
+8. Display all file/dir permissions in the current dir. ls -l | cut c1-10
+9. display all the logged in users along with their terminal name. Ans: w
+10. display all the IP address of the different logged in users. Ans: who  OR w -i
+11. find the diff between two files. diff -y file1 file2  (side by side difference is displayed)
+
+12. sort the no. field in the file marks.txt:  sort -k 3n marks.txt (3 means 3rd column; n - numeric)
+    sort -k 3r marks.txt sort in reverse order
+
+13. order files based on last modified time (in reverse order):  ls -l | cut -c45-49 | sort => Shows only sorted time
+	OR ls -lt => shows files and details sorted as per time and date.
+	ls -ltr => 'r' for reverse order sort 
+
+14. cmd to zip file: gzip file.txt
+	unzip: gzip -d file.txt.gz
+
+15. stop a process: kill -9 [process id]
+
+-------------------------------------------------------------
+                    SHELL PROGRAMMING
+-------------------------------------------------------------
+NOTE: wild card imp : *, ?, `
+file extension .sh;
+echo -n "ENTER A NUMBER: "
+read num1
+echo -n "ENTER ANOTHER NUMBER: "
+read num2
+sum=`expr $num1 + $num2`
+echo "Sum is: "$sum
+
+Run the code with:
+1) ./filename.sh 
+        OR
+2) sh filename.sh
