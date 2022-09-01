@@ -16,7 +16,7 @@ Cmd to install VS Code: $ sudo snap install code --classic
 Cmd to install Eclipse: $ sudo snap install --classic eclipse
 
 
-ls : to list directory
+ls    : to list directory
 ls -a : to list all hidden files and directories
 ls -l : to give detailed info of directories/ files like when created and by whom, is readable/ writeable/ executable.
 ls -al: to list all hidden files with details.
@@ -39,10 +39,10 @@ touch fileName : to create a file
 
 cd / : to go to root directory
 cd ~ : to go to home/user directory
-cd : will also take you to home/user directory
-cd [dirNam]e : to change directory
+cd   : will also take you to home/user directory
+cd [dirName] : to change directory or go to that directory.
 cd .. : to go to the outer directory from the current one.
-pwd : shows the path of current working directory.
+pwd   : shows the path of current working directory.
 
 rm [filename] : to remove dir/ file/ folder. 
 rmdir [dirName] : to remove the file/ folder/ directory.
@@ -59,22 +59,28 @@ lsusb : shows the USB buses and devices connected.
 sudo apt install AppName : to install apps
 sudo apt remove AppsName : to remove/ delete the app
 
-CTRL + ALT + T : to open terminal
-CTRL + SHIFT + W : to close terminal
-ALT + F4 : to close APPs
-CTRL + L : to clear the terminal
-CTRL + C : to terminate the program
-CTRL + Z : to pause/suspend the program
+CTRL + ALT + T      : to open terminal
+CTRL + SHIFT + W    : to close terminal
+ALT + F4            : to close APPs
+CTRL + L            : to clear the terminal
+CTRL + C            : to terminate the program
+CTRL + Z            : to pause/suspend the program
 
 whatis [cmds] : to give brief description or use of that command.
 whereis [cmds] : gives the path or location of the binary source code files & man page of the given command.
 whoami : cmd to check whether you are root user/ whats the user name you are logged in as.
+
 su root : to go to the root account. '$' will change to '#'
 passwd : to change your login or root account  password.
 passwd [Account Name] : to change password of that particular account.
 id : shows user id; root account id is 0.
 sudo adduser username: to create a new user account.
 sudo usermod -aG sudo username : to make the user as a root user.
+
 ps aux : lists all processes that are currently running in the device.
+
 echo [texts] : to display texts in the terminal
 echo [texts] > [file] : to redirect the text intos the file. 
+
+xdpyinfo | grep 'dimensions:' : to check screen resolution
+Result from above cmd:  dimensions:    1366x768 pixels (361x203 millimeters)
