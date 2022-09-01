@@ -37,7 +37,7 @@ Default permissions for:
 2. Combine contents of two file into one file :  cat > combineFile.txt file1.txt file2.txt
 3. Display current date in the terminal preceeded by the screen "Hello today is dd-mm-yyyy" :  date "+Hello today is %d-%m-%y"
 4. Display the directories only :  ls -l | grep "^d" | wc -l
-5. Create a file and write few text on it :  cat > filename.txt then write something. Press CTRL-D to stop writing in that file.
+5. Create a file and write few text on it :  cat > filename.txt then write something. Press CTRL+D to stop writing in that file.
 6. How many users are currently logged in :  who | wc -l
 7. Find the number of files present in the directory :  ls -l | grep "^-" | wc -l
 
@@ -46,11 +46,11 @@ Default permissions for:
 -----------------------------------------------------------------------------------------------------------------------
  grep -i EXAM exam.txt | wc -l  : '-i' ignores case while checking; counting the word 'EXAM' in exam.txt file.
  grep -i -c exam exam.txt       : same as above 
- echo there are `grep -i -o -c  : exam exam.txt` matches found; Output: there are 5 matches found
+ echo there are `grep -i -o -c EXAM exam.txt` matches found  => Output: there are 5 matches found ('-o' means only matched parts of the line)
 
 Q.1 Count the number of files in the current directory:  ls -al | wc -l
 Q.2 Display the list of all processes run by all users in their login shell:  ps -a
-Q.3 Check whether the user Student1 has logged in or not.
+Q.3 Check whether the user Student1 has logged in or not:  who | grep Student1 (this shows only Student1 user details in who cmd, provided if present)
 Q.4 Display ur terminal name:  tty
 Q.5 Display the full path name for the current working directory:  pwd
 Q.6 Convert all lowers case letters to uppercase letters in a file:  cat file.txt | tr a-z A-Z
