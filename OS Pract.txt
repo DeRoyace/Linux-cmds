@@ -95,10 +95,10 @@ Gaaurav 089
 8. Display all file/dir permissions in the current dir. ls -l | cut c1-10
 9. display all the logged in users along with their terminal name. Ans: w
 10. display all the IP address of the different logged in users. Ans: who  OR w -i
-11. find the diff between two files. diff -y file1 file2  (side by side difference is displayed)
+11. find the difference between two files:  diff -y file1 file2  (side by side difference is displayed)
 
-12. sort the no. field in the file marks.txt:  sort -k 3n marks.txt (3 means 3rd column; n - numeric)
-    sort -k 3r marks.txt sort in reverse order
+12. sort the no. field in the file marks.txt:  sort -k 3n marks.txt (k: sort via key; 3 means 3rd column; n - numeric)
+    sort -k 3nr marks.txt (r: sort in reverse order)
 
 13. order files based on last modified time (in reverse order):  ls -l | cut -c45-49 | sort => Shows only sorted time
 	OR ls -lt => shows files and details sorted as per time and date.
@@ -109,6 +109,80 @@ Gaaurav 089
 
 15. stop a process: kill -9 [process id]
 
+------------------------------------------------------------------------------
+head and tail cmds:
+
+1. A file named playingXI.txt contents:
+
+Rohit Sharma (C)
+KL Rahul
+Virat Kohli
+Surya Kumar Yadav
+Hardik Pandya
+Dinesh Kartik (W)
+Ravindra Jadeja
+B Kumar
+Arshdeep Singh
+Deepak Chahhar
+Y Chahal
+
+a) Display first 6 players: head -6 playingXI.txt
+Rohit Sharma (C)
+KL Rahul
+Virat Kohli
+Surya Kumar Yadav
+Hardik Pandya
+Dinesh Kartik (W)
+
+b) Display last 3 players: tail -3 playingXI.txt
+Arshdeep Singh
+Deepak Chahhar
+Y Chahal
+
+c) Display player no. 3: head -3 playingXI.txt | tail +3    OR    head -3 playingXI.txt | tail -1
+Virat Kohli
+
+
+2. A file student.txt is created that contains the Student details given below:
+
+Name    Roll    Marks
+Bash    007     90
+Arxus   420     88
+Magnus  155     89
+Cyboi   990     79
+Jason   786     100
+Musk    069     99
+
+a) Sorting the first column data: head -1 student.txt && cat student.txt | tail -6 | sort -k 1
+    
+    OUTPUT:
+    Name    Roll    Marks
+    Arxus   420     88
+    Bash    007     90
+    Cyboi   990     79
+    Jason   786     100
+    Magnus  155     89
+    Musk    069     99
+    
+b) Display student details sorted w.r.t Marks: sort -k 3n student.txt
+    OUTPUT:
+    Name    Roll    Marks
+    Cyboi   990     79
+    Arxus   420     88
+    Magnus  155     89
+    Bash    007     90
+    Musk    069     99
+    Jason   786     100
+    
+    Sorting the marks in reverse order: head -1 student.txt && cat student.txt | tail -6 | sort -k 3nr
+    Name    Roll    Marks
+    Jason   786     100
+    Musk    069     99
+    Bash    007     90
+    Magnus  155     89
+    Arxus   420     88
+    Cyboi   990     79
+    
 -------------------------------------------------------------
                     SHELL PROGRAMMING
 -------------------------------------------------------------
