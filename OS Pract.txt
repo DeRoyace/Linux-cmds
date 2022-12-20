@@ -31,12 +31,12 @@ drwxrwxrwx: 'd' - directrory
      
 Default permissions for:
     a) file     - 664 (-rw-rw-r--)
-    b) folder   - 665 (drwxrwxr-x)
+    b) folder   - 775 (drwxrwxr-x)
 
 1. Display directories, sub-directories :  ls -l
 2. Combine contents of two file into one file :  cat > combineFile.txt file1.txt file2.txt
 3. Display current date in the terminal preceeded by the screen "Hello today is dd-mm-yyyy" :  date "+Hello today is %d-%m-%y"
-4. Display the directories only :  ls -l | grep "^d" | wc -l
+4. Display the directories only :  ls -l | grep "^d"
 5. Create a file and write few text on it :  cat > filename.txt then write something. Press CTRL+D to stop writing in that file.
 6. How many users are currently logged in :  who | wc -l
 7. Find the number of files present in the directory :  ls -l | grep "^-" | wc -l
@@ -76,7 +76,7 @@ Gaaurav     980     089
 a) display the first column only. cut -f1 Roy_ek_villian.txt
 
 NOTE: f1 takes first column and ignores tab spaces
-But here i made two tabs between Name and Row column  so f1 - NAME column; f3 - ROLL column; f4 - MARKS column
+But here I have made two tabs between Name and Row column  so f1 - NAME column; f3 - ROLL column; f4 - MARKS column
 
 b) display the last two column.
 Ans: cut -f3-4 Roy_ek_villian.txt
