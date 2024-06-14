@@ -5,51 +5,60 @@ Cmd to upgrade programs: $ sudo apt upgrade
 Cmd to install bpytop: $ sudo apt install bpytop
 
 
-Cmd to install pip: $ sudo apt install pip
-
-Cmd to install snap: $ sudo apt install snap
-
-
-
-Cmd to install VS Code: $ sudo snap install code --classic
-
-Cmd to install Eclipse: $ sudo snap install --classic eclipse
-
-
-ls    : to list directory
+Cmd to install any application or command: $ sudo apt install {APP-NAME}
+------------------------------------------------------------------------
+ls command:
+ 
+ls    : to list directories and files
 ls -a : to list all hidden files and directories
 ls -l : to give detailed info of directories/ files like when created and by whom, is readable/ writeable/ executable.
 ls -al: to list all hidden files with details.
-ls -lh: to list file with details ut file size in KB (kilobytes).
+ls -lh: to list file with details of file size in KB (kilobytes).
 ls -lR: to list all the directories and their sub-directories with details.
 ls -lR dirName : to list the details of sub-directories of the specified dirName.
+ls -F : to identify files and directories seperately. Directories will be listed with a "/" symbol at the end of directory name
+ls *.txt : dislays file name list that has .txt extension
+ls -i : displays the inode [index number] of each file
+ls --sort=t : displays the list of files / directory sorted by time. Similarly sort=v/s/e for sort by version/size/extension
 
-locate filename : search the given filename in the computer.
-mkdir folderName : to create a folder/ directory
-mkdir folder1 folder2 folder3 : to create multiple folders/ directory at once
-mkdir file{1..9} : this will create 10 folders with name 'file 1', 'file 2', ..., 'file 10'
-mkdir -v folders{1..7} : this will create folders & will skip the ones which are already created before with the same name.
-mkdir -p Desktop/myRipos/Codes/Shell/cmds : will create 'cmds' folder in the given path but if the path doesn't exits then it will be created.
-mk [cureentFileName] [NewFileName] : this changes the file or folder name.
-mv [file] [dir] : to move the file in the directory/ folder.
-cp [file1] [file2] : copies the file1 contents to file2.
-cp [file] [dir] : will copy the file in the directory.
-cat [filename] : to show the contents of file in the terminals.
-touch fileName : to create a file
 
 cd / : to go to root directory
 cd ~ : to go to home/user directory
 cd   : will also take you to home/user directory
 cd [dirName] : to change directory or go to that directory.
 cd .. : to go to the outer directory from the current one.
-pwd   : shows the path of current working directory.
+pwd   : shows the path of current working directory. [ Print Working Directory ]
 
-rm [filename] : to remove dir/ file/ folder. 
+locate {SEARCH-NAME} : to search the given name in the computer drive
+whereis {APP/COMMAND} : to locate binary file, manual page files of applications or commands
+which {APP/COMMAND}: to locate a command
+
+mkdir folderName : to create a folder/ directory
+mkdir folder1 folder2 folder3 : to create multiple folders/ directory at once
+mkdir file{1..9} : this will create 10 folders with name 'file 1', 'file 2', ..., 'file 10'
+mkdir -v folders{1..7} : this will create folders & will skip the ones which are already created before with the same name.
+mkdir -p Desktop/myRipos/Codes/Shell/cmds : will create 'cmds' folder in the given path but if the path doesn't exits then it will be created.
+mk [cureentFileName] [NewFileName] : this changes the file or folder name.
+
+mv [file] [dir] : to move the file in the directory/ folder.
+cp [file1] [file2] : copies the file1 contents to file2.
+cp {FILE-NAME} : will copy the file in the directory.
+
+cat {FILE-NAME} : to show the contents of file in the terminals.
+cat > {filename} : to rewrite a file. If the filename not present then new file with given name will be created
+cat >> {filename} : to append new contents to the file
+[NOTE: for cat > or >> ... commands, inorder to exit writing mode of the file press CTRL+D.]
+touch {FILE-NAME} : to create a file
+
+rm [filename] : to remove dir/ file/ folder.
+rm * : removes all the files in the current directory. 
 rmdir [dirName] : to remove the file/ folder/ directory.
 rmdir myFolder* : removes all folders that begins with name 'myFolder'
+rmdir * : removes all the folder in the present directory.
 rmdir myFolder{1..7} : removes the folders from 'myFolder 1' to 'myFolder 7'
 NOTE: rmdir cannot delete diectories having files / folders inside.
 rm -R [dirName] : to delete the directory with the files inside.
+rm -r <dir name>: to delete all the files and NON-EMPTY directories and also the child folders content.
 
 history : will list all the cmds used (last 500 cmds)
 df : shows the disk spcace usage
@@ -60,27 +69,121 @@ sudo apt install AppName : to install apps
 sudo apt remove AppsName : to remove/ delete the app
 
 CTRL + ALT + T      : to open terminal
-CTRL + SHIFT + W    : to close terminal
+CTRL + SHIFT + W
+      or 
+CTRL + D            : to close terminal
 ALT + F4            : to close APPs
 CTRL + L            : to clear the terminal
 CTRL + C            : to terminate the program
 CTRL + Z            : to pause/suspend the program
+CTRL + A            : to go to start of the line/ command
+CTRL + E            : to go to end of the line/ command
+CTRL + U            : to clear the command
 
 whatis [cmds] : to give brief description or use of that command.
-whereis [cmds] : gives the path or location of the binary source code files & man page of the given command.
 whoami : cmd to check whether you are root user/ whats the user name you are logged in as.
 
-su root : to go to the root account. '$' will change to '#'
+su root : to go to the root account. '$' will change to '#'; su - switch user
+sudo su : switching user
+
 passwd : to change your login or root account  password.
 passwd [Account Name] : to change password of that particular account.
-id : shows user id; root account id is 0.
-sudo adduser username: to create a new user account.
-sudo usermod -aG sudo username : to make the user as a root user.
+
+id {USER-NAME}: shows user id; root account id is 0.
+
+To create new User Group:
+sudo adddgroup {GROUP-NAME}
+
+To assign a file/folder to a specific group:
+chgrp {GROUP-NAME} {FILE/FOLDER NAME}
+
+To remove a group:
+sudo groupdel {GROUP-NAME}
+
+sudo adduser [username]: to create a new user account.
+sudo usermod -aG sudo [username] : to make the user as a root user.
+
+To change the user or ownership of a file/folder:
+sudo chown {USER-NAME} {FILE/FOLDER-NAME}
 
 ps aux : lists all processes that are currently running in the device.
 
 echo [texts] : to display texts in the terminal
-echo [texts] > [file] : to redirect the text intos the file. 
+echo [texts] > [file] : to redirect the text into the file. 
 
 xdpyinfo | grep 'dimensions:' : to check screen resolution
 Result from above cmd:  dimensions:    1366x768 pixels (361x203 millimeters)
+
+To check distro release version:
+lsb_release -a
+cat /etc/os-release
+
+To check Desktop Environment: echo $XDG_CURRENT_DESKTOP
+
+sudo updatedb : updates the local database
+
+To highlight words in a file or command output that ends with letter 'A':
+    grep "\b\w*A\b" {filename}
+
+    Specifically display and highlight only those words that starts with letter 'A' OR 'a':
+    grep -o -i "\b\A\w*\b" {filename}
+    
+    -o : outputs only matching words
+    -i : ignores case [NOTE: it works only when capital letter is used in the command to find the required search]
+
+-----------------------------------------------------------------------------------------
+WILD CARDS:
+    *, ? are some wilcards
+
+Use of wild cards:
+
+    To list all files that starts with "file" and succeeds by any one character and then ".txt":
+    ls file?.txt
+    
+    ? two characters
+    ??? means any 3 character
+    ls file???.txt
+    
+    ls file*.txt
+    * implies any number of characters
+    
+    
+-----------------------------------------------------------------------------------------
+CUT:
+
+- used to extract characters or remove sections from each lines of files
+
+To extract first three characters of every line:
+    cut -c -3 {FILENAME}
+    
+To extract characters starting from 2nd character of every line:
+    cut -c 2- {FILENAME}
+    
+To extract last three characters of every line:
+    cat {FILENAME} | rev | cut -c -3 | rev
+
+To display selected columns sorted by ID:
+
+    cut -d $'\t' -f1-4 movies.txt | sort -k1 -n
+    
+    $'\t' : tab space delimiter [taking columns seperated by TAB space]
+    -d  : delimiter
+    -n  : numeric value sorted
+    -f1-4 : columns 1 to 4
+    -k1 : sort by first column
+    -k2 : sort by second column
+
+-----------------------------------------------------------------------------------------    
+PASTE:    
+    
+paste {FILENAME-1} {FILENAME-2} : concatenates two files. by default the delimiter is TAB
+To explicity specify a delimiter/ concat file contents using delimiter:
+paste -d '-' {FILENAME-1} {FILENAME-2}
+
+To compare two sorted files
+    comm --total file1.txt file2.txt
+
+    unmatched file of first file is displayed in 1st column
+    unmatched file of first file is displayed in 2nd column
+    matched lines in 3rd column
+    --total : counts the number of lines that are matched and unmatched for both the files.
