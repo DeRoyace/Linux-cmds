@@ -33,7 +33,7 @@ Default permissions for:
     a) file     - 664 (-rw-rw-r--)
     b) folder   - 775 (drwxrwxr-x)
 
-1. Display directories, sub-directories :  ls -l
+1. Display directories, sub-directories :  ls -R
 2. Combine contents of two file into one file :  cat > combineFile.txt file1.txt file2.txt
 3. Display current date in the terminal preceeded by the screen "Hello today is dd-mm-yyyy" :  date "+Hello today is %d-%m-%y"
 4. Display the directories only :  ls -l | grep "^d"
@@ -49,14 +49,14 @@ Default permissions for:
  echo there are `grep -i -o -c EXAM exam.txt` matches found  => Output: there are 5 matches found ('-o' means only matched parts of the line)
 
 Q.1 Count the number of files in the current directory:  ls -al | wc -l
-Q.2 Display the list of all processes run by all users in their login shell:  ps -a
+Q.2 Display the list of all processes run by all users in their login shell:  ps -au
 Q.3 Check whether the user Student1 has logged in or not:  who | grep Student1 (this shows only Student1 user details in who cmd, provided if present)
 Q.4 Display ur terminal name:  tty
 Q.5 Display the full path name for the current working directory:  pwd
 Q.6 Convert all lowers case letters to uppercase letters in a file:  cat file.txt | tr a-z A-Z
     cat file.txt | tr a-zA-Z a-zA-Z (upper to lower and lower to upper)
 Q.7 There are two text files. write a cmd to display total no. of words in this two files:  cat file.txt | wc -w
-    ls -alh | grep "^d" | wc -l => drwxrwxrwx counts 'd'
+Q.8 Find total number of directories present in a folder: ls -alh | grep "^d" | wc -l
 
 -----------------------------------------------------------------------------------------------------------------------
                         OS Practical | SM KG | 	12-08-22
@@ -73,20 +73,20 @@ Q.7 There are two text files. write a cmd to display total no. of words in this 
 Siladit     420     100
 Kaushik     786     099
 Gaaurav     980     089
-a) display the first column only. cut -f1 Roy_ek_villian.txt
+a) display the first column only. cut -f1 Student_marks.txt
 
 NOTE: f1 takes first column and ignores tab spaces
 But here I have made two tabs between Name and Row column  so f1 - NAME column; f3 - ROLL column; f4 - MARKS column
 
 b) display the last two column.
-Ans: cut -f3-4 Roy_ek_villian.txt
+Ans: cut -f3-4 Student_marks.txt
 ROLL    MARKS
 420     100
 786     099
 980     089
 
 c) display the first and third columns.
-Ans: cut -f1,4 Roy_ek_villian.txt
+Ans: cut -f1,4 Student_marks.txt
   NAME  MARKS
 Siladit 100
 Kaushik 099
