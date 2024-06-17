@@ -36,14 +36,18 @@
 
 ### Create or manipulate file
 - `touch [FILE-NAME]` : to create a file
+- `touch -m [FILE-NAME]` : change  modification  time of the  file
+- `touch -a [FILE-NAME]` : change the access time of the file
+- `touch test{1..5}.txt` : create 5  files with name test1.txt, test2.txt, ..., test5.txt
 - `cat > [FILE-NAME]` : to rewrite a file. If the filename not present then new file with given name will be created
 - `cat >> [FILE-NAME]` : to append new contents to the file
-[NOTE: for cat > or >> ... commands, inorder to exit writing mode of the file press CTRL+D.]
+[ **NOTE**: _for cat > or >> ... commands, inorder to exit writing mode of the file press CTRL+D._]
 
 ### Delete files
 - `rm [FILE-NAME]` : to remove dir/ file/ folder.
 -  `rm *` : removes all the files in the current directory. 
 -  `rm *.txt` : removes all the files in the current directory that has .txt extension.
+- `rm -i [FILENAME]` : to make command prompt the user with each filename while deleting
 
 ### Move and Copy
 - `mv [SOURCE] [DESTINATION]` : to move the file into the given destination or path.
@@ -56,12 +60,34 @@
 ### Change filename
 - `mk [PRESENT-FILENAME] [NEW-FILENAME]` : this changes the file or folder name.
 
+### Octal form
+- `od  [FILENAME]` : to display a file contents in octal form
+
+### file command
+- used to display file type
+    ```
+    file video.mp4
+    ```
+    Output:
+    ```
+    video.mp4: ISO Media, MP4 Base Media v1 [ISO 14496-12:2003]
+    ```
+
 ### Locate a file
 - `find [FILENAME]` : search for files in a directory hierarchy
 
 
 ### File Comparison
 
+#### cmp command
+- Compare two files byte by byte
+    ```
+    cmp file1.txt file2.txt
+    ```
+    Output:
+    ```
+    file1.txt file2.txt differ: byte 8, line 1
+    ```
 #### diff command
 - used to compare files line by line
     ```
@@ -102,60 +128,69 @@ Examples:
         - left most single symbol `d` indicates it is a directory. It can be `l` or `-` also.
             - `l` means its a shortcut link of a file or a directory.
             - `-` means it is a file.
-    - **Numerical Short hand or Octal  Mode**
-        - Another way to use chmod is to provide the permissions you wish to give to the owner, group, and others as a three-digit number which is basically octets that are formed by combinations of 4,2 and 1.
-        - The leftmost digit represents the permissions for the owner. 
-        - The middle digit represents the permissions for the group members. 
-        - The rightmost digit represents the permissions for the others.
-       
-              Value   Symbols    Meanings/ Permissons
-                0       ---       No permission
-                1       --x       Execute
-                2       -w-       Write
-                3       -wx       Write and execute
-                4       r--       Read
-                5       r-x       Read and execute
-                6       rw-       Read and write
-                7       rwx       Read, write, and execute
-            Examples:
-            - Give   read,  write,  execution  permissions to all types of users:
-                ```
-                chmod 777 program.sh
-                ```
-            - Give   read,  write,  execution  permissions only to User and Group:
-                ```
-                chmod 770 program.sh
-                ```
-            - Give   read,  write,  execution  permissions to User and read nad execution permission to Group and only execution permission to  other users:
-                ```
-                chmod 751 program.sh
-                ```
-
-        - Default permissions for:
-            - `file`     : **664** (-rw-rw-r--)
-            - `folder`   : **775** (drwxrwxr-x)
-
-    -  **Symbolic Mode**
-        ```
-         Symbol     Meaning
-        -------------------
-           u         user
-           g         group
-           o         others
-        ```
+- **Numerical Short hand or Octal  Mode**
+    - Another way to use chmod is to provide the permissions you wish to give to the owner, group, and others as a three-digit number which is basically octets that are formed by combinations of 4,2 and 1.
+    - The leftmost digit represents the permissions for the owner. 
+    - The middle digit represents the permissions for the group members. 
+    - The rightmost digit represents the permissions for the others.
+   
+          Value   Symbols    Meanings/ Permissons
+            0       ---       No permission
+            1       --x       Execute
+            2       -w-       Write
+            3       -wx       Write and execute
+            4       r--       Read
+            5       r-x       Read and execute
+            6       rw-       Read and write
+            7       rwx       Read, write, and execute
         Examples:
-        - Give read, write, execute permission to user and execute permission to group and other
+        - Give   read,  write,  execution  permissions to all types of users:
             ```
-            chmod u+rwx,go+x program.sh
+            chmod 777 program.sh
             ```
-        - Give read permission to all, write permission to  user and group, execute persmission to group only:
+        - Give   read,  write,  execution  permissions only to User and Group:
             ```
-            chmod u+rw,g+rx,o+r program.sh
+            chmod 770 program.sh
             ```
-        - Give read, write, execute permission to user and execute permission to group and other:
+        - Give   read,  write,  execution  permissions to User and read nad execution permission to Group and only execution permission to  other users:
             ```
-            chmod u+rwx,go+x program.sh
+            chmod 751 program.sh
             ```
+
+    - Default permissions for:
+        - `file`     : **664** (-rw-rw-r--)
+        - `folder`   : **775** (drwxrwxr-x)
+
+-  **Symbolic Mode**
+    ```
+     Symbol     Meaning
+    -------------------
+       a         all users
+       u         user
+       g         group
+       o         others
+    ```
+    Examples:
+    - Give read, write, execute permission to user and execute permission to group and other
+        ```
+        chmod u+rwx,go+x program.sh
+        ```
+    - Give read permission to all, write permission to  user and group, execute persmission to group only:
+        ```
+        chmod u+rw,g+rx,o+r program.sh
+        ```
+    - Give read, write, execute permission to user and execute permission to group and other:
+        ```
+        chmod u+rwx,go+x program.sh
+        ```
+    -  Make all files and sub-directories in the directory TEST executable by all users
+        ```
+        chmod -R a+x TEST
+        ```
+    - Remove executable  permission from group and other of a file
+        ```
+        chmod go-x file.txt
+        ```
 
 #### chgrp (change group)
 - `chgrp [GROUP-NAME] [FILE/FOLDER NAME]`
@@ -166,7 +201,50 @@ Examples:
 -  `sudo chown [USER-NAME] [FILE/FOLDER-NAME]`
  :  to change the user or ownership of a file/folder:
 
+### File Compression
 
+####  tar command
+- it is used to  compress and archive files
+- **TAR** short for Tape Archive
+
+Examples:
+
+- To create a tar and includes the files specified in the command:
+    ```
+    tar cf file.tar [FILE-NAMES]
+    ```
+    - `c` : create new archive
+    - `f` : to specify name of the archive files
+    - `[FILE-NAMES]` : represent files that are to be included in the tar file
+
+- Extract From tar Archive
+    ```
+    tar xf file.tar
+    ```
+    - `x` : extract files from an archive
+
+- Creating an uncompressed tar Archive:
+
+    ```
+    tar cvf file.tar *.sh
+    ```
+    - This command creates a **tar** file called `file.tar` which is the **Archive** of all `.sh` files in the current directory.
+    - `v` : verbosely  list  files processed
+
+- Extracting from uncompressed tar archive:
+    ```
+    tar xvf file.tar
+    ```
+
+- Create a tar.gz Compressed Archive:
+    ```
+    tar czf files.tar.gz files
+    ```
+
+- Extract files from tar.gz
+    ```
+    tar xzf files.tar.gz
+    ```
 <br>
 
 ## Directory
@@ -207,6 +285,34 @@ NOTE: rmdir cannot delete diectories having files / folders inside.
 
 <br>
 
+## sort command
+
+- to sort lines of  text files lexicographically
+
+Examples:
+
+- sort the lines  of file in alphabetical order:
+    ```
+    sort  [FILENAME]
+    ```
+
+- sort the lines of file in reverse order:
+    ```
+    sort -r [FILENAME]
+    ```
+
+- output the sorted file into a new file:
+    ```
+    sort  [FILENAME] > [NEW-FILE]
+    ```
+
+- output the sorted lines of a file into a new file without duplicates:
+    ```
+    sort [FILENAME] > uniq > [NEW-FILE]
+    ```
+
+<br>
+
 ##  ln command
 - used to make links between files
 
@@ -229,11 +335,20 @@ Examples:
     - `^d` : matches those lines that starts with letter 'd'
 
     Output:
+    ![grep-cmd-output-1](images/grep-1.png)
+
+- Show the line numbers that matches the pattern "hello", ignoring case
     ```
-    drwxrwxr-x 2 deroyace  deroyace    4096 Jun 14 12:53 COMPARE
-    drwxrwxr-x 2 deroyace  deroyace    4096 Jun  4 16:12 DIR
-    drwxrwxr-x 2 rohit-roy deroyace    4096 Jun  5 16:12 LINKS
+    grep -i -n "hello" file.txt
     ```
+    - `-n` : displays line number
+    - `-i` : ignores case
+
+- Ignore those lines that matches the pattern "hello"
+    ```
+    grep -v "hello" [FILENAME]
+    ```
+
 - To highlight words in a file or command output that ends with letter 'A':
     ```
     grep "\b\w*A\b" [FILENAME]
