@@ -16,20 +16,30 @@
 
 <br>
 
-## Change Directory
+## Directory
+
+### Directory Creation
+- `mkdir [FOLDER-NAME]` : to create a folder/ directory
+- `mkdir folder1 folder2 folder3` : to create multiple folders/ directory at once
+- `mkdir file{1..9}` : this will create 10 folders with name 'file 1', 'file 2', ..., 'file 10'
+- `mkdir -v folders{1..7}` : this will create folders & will skip the ones which are already created before with the same name.
+- `mkdir -p [PATH]` : will create 'cmds' folder in the given path but if the path doesn't exits then it will be created.
+
+### Remove directoy
+- `rmdir [DIR-NAME]` : to remove the file/ folder/ directory.
+- `rmdir myFolder*` : removes all folders that begins with name 'myFolder'
+- `rmdir *` : removes all the folder in the present directory.
+- `rmdir myFolder{1..7}` : removes the folders from 'myFolder 1' to 'myFolder 7'
+NOTE: rmdir cannot delete diectories having files / folders inside.
+- `rm -R [DIR-NAME]` : to delete the directory with the files inside.
+- `rm -r [DIR-NAME]`: to delete all the files and NON-EMPTY directories and also the child folders content.
+
+### Change Directory
 - `cd` : to change directory to home/user directory
 - `cd ~` : to go to home/user directory
 - `cd /` : to go to root directory
 - `cd [DIR-NAME]` : to change directory or go to that directory
 - `cd ..` : to go to the parent directory
-<br>
-
-## Path Locate
-- `pwd`   : shows the path of current working directory
-- `locate [SEARCH-NAME]` : to search files by name
--  `whereis [APP/COMMAND]` : to locate binary file, manual page files of applications or commands
-- `which [APP/COMMAND]`: to locate a command or an application
-
 <br>
 
 ## File management
@@ -99,6 +109,55 @@ Examples:
     diff -y file1.txt file2.txt
     ```
     - `-y` : side-by-side  output in two columns
+
+#### comm command
+- Used to compare two sorted files
+    
+    Contents of file1.txt :
+    ```
+    ANGULAR
+    DJANGO
+    ELECTRON
+    FLASK
+    NODEJS
+    REACT
+    YARN
+    ```
+    Contents of file2.txt :
+    ```
+    ANGULAR JS
+    FASTAPI
+    FLASK
+    NEXT JS
+    NODEJS
+    REACTJS
+    YARN
+    ```
+    Command line input:
+    ```
+    comm --total file1.txt file2.txt
+    ```
+    Output:
+    ```
+    ANGULAR
+    	    ANGULAR JS
+    DJANGO
+    ELECTRON
+    	    FASTAPI
+    		        FLASK
+    	    NEXT JS
+    		        NODEJS
+    REACT
+    	    REACTJS
+    		        YARN
+    4	4	3	total
+    ```
+
+    - unmatched file of first file is displayed in 1st column
+    - unmatched file of first file is displayed in 2nd column
+    - matched lines in 3rd column
+    - `--total` : counts the number of lines that are matched and unmatched for both the files.
+
 
 ### File  Permissions
 
@@ -247,26 +306,6 @@ Examples:
     ```
 <br>
 
-## Directory
-
-### Directory Creation
-- `mkdir [FOLDER-NAME]` : to create a folder/ directory
-- `mkdir folder1 folder2 folder3` : to create multiple folders/ directory at once
-- `mkdir file{1..9}` : this will create 10 folders with name 'file 1', 'file 2', ..., 'file 10'
-- `mkdir -v folders{1..7}` : this will create folders & will skip the ones which are already created before with the same name.
-- `mkdir -p [PATH]` : will create 'cmds' folder in the given path but if the path doesn't exits then it will be created.
-
-### Remove directoy
-- `rmdir [DIR-NAME]` : to remove the file/ folder/ directory.
-- `rmdir myFolder*` : removes all folders that begins with name 'myFolder'
-- `rmdir *` : removes all the folder in the present directory.
-- `rmdir myFolder{1..7}` : removes the folders from 'myFolder 1' to 'myFolder 7'
-NOTE: rmdir cannot delete diectories having files / folders inside.
-- `rm -R [DIR-NAME]` : to delete the directory with the files inside.
-- `rm -r [DIR-NAME]`: to delete all the files and NON-EMPTY directories and also the child folders content.
-
-<br>
-
 ## Wild  cards
 - `*`, `?` are  wilcards
 
@@ -403,56 +442,6 @@ Examples:
     ```
 <br>
 
-## Compare
-- Used to compare two sorted files
-    
-    Contents of file1.txt :
-    ```
-    ANGULAR
-    DJANGO
-    ELECTRON
-    FLASK
-    NODEJS
-    REACT
-    YARN
-    ```
-    Contents of file2.txt :
-    ```
-    ANGULAR JS
-    FASTAPI
-    FLASK
-    NEXT JS
-    NODEJS
-    REACTJS
-    YARN
-    ```
-    Command line input:
-    ```
-    comm --total file1.txt file2.txt
-    ```
-    Output:
-    ```
-    ANGULAR
-    	    ANGULAR JS
-    DJANGO
-    ELECTRON
-    	    FASTAPI
-    		        FLASK
-    	    NEXT JS
-    		        NODEJS
-    REACT
-    	    REACTJS
-    		        YARN
-    4	4	3	total
-    ```
-
-    - unmatched file of first file is displayed in 1st column
-    - unmatched file of first file is displayed in 2nd column
-    - matched lines in 3rd column
-    - `--total` : counts the number of lines that are matched and unmatched for both the files.
-
-<br>
-
 ## User and Group handling
 ### Switch user
 - `su root` : to go to the root account. '$' will change to '#'; su -> switch user
@@ -508,6 +497,14 @@ Result from above cmd:  dimensions:    1366x768 pixels (361x203 millimeters)
 - `du` : shows directory space usage
 - `free` : shows memory and swap usage
 - `cat /proc/meminfo` : memory information
+
+<br>
+
+## Path Locate
+- `pwd`   : shows the path of current working directory
+- `locate [SEARCH-NAME]` : to search files by name
+-  `whereis [APP/COMMAND]` : to locate binary file, manual page files of applications or commands
+- `which [APP/COMMAND]`: to locate a command or an application
 
 <br>
 
